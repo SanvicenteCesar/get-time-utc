@@ -10,7 +10,7 @@ router.post("/get-time", async(req, res) => {
     try {
         if (count) {
             var m = moment(time, 'HH:mm:ss')
-            var resp = moment.utc(m).add('hours', count).format('HH:mm:ss')
+            var resp = moment.utc(m).add(count, 'hours').format('HH:mm:ss')
             return res.json({ response: { time: resp, timezone: 'utc' } });
         } else {
             return res.json({ response: { time: 'invalid', timezone: 'utc' } });
